@@ -6,7 +6,7 @@ dodatkowe funkcje [zapoznaj się z dokumentacją](https://vitejs.dev/).
 ## Tworzenie repozytorium za pomocą szablonu
 
 Użyj tego repozytorium GoIT jako szablonu, aby utworzyć repozytorium
-dla swojego projektu. By to zrobić, kliknij przycisk `«Use this template»` і
+dla swojego projektu. By to zrobić, kliknij przycisk `«Use this template` і
 wybierz opcję `«Create a new repository»`, jak pokazano na obrazku.
 
 ![Creating repo from a template step 1](./assets/template-step-1.png)
