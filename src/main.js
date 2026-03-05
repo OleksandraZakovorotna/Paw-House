@@ -1,4 +1,3 @@
-
 import './js/about-us-secion.js';
 import './js/animal-details-modal.js';
 import './js/faq-section.js';
