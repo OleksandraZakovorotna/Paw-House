@@ -1,4 +1,3 @@
-import Swal from 'sweetalert2';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -6,7 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 const mySprite = '/icons.svg';
 
-const API_URL = 'https://paw-hut.b.goit.study/api/feedbacks?limit=10&page=1';
+const API_URL = 'https://paw-hut.b.goit.study/api/feedbacks?limit=6&page=1';
 
 function createFeedbackCard(feedback) {
   const rating = feedback.rate;
@@ -67,7 +66,7 @@ function initializeSwiper() {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
     slidesPerGroup: 1,
-    spaceBetween: 24,
+    spaceBetween: 32,
     grabCursor: true,
 
     pagination: {
@@ -132,11 +131,10 @@ export async function initSuccessStories() {
 
     initializeFeedbacksAndStars(feedbacks);
   } catch (error) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Помилка завантаження',
-      text: 'Не вдалося завантажити відгуки. Спробуйте пізніше.',
-    });
+    const errorEl = document.getElementById('feedbacks-error');
+    if (errorEl) {
+      errorEl.classList.remove('is-hidden');
+    }
   }
 }
 
