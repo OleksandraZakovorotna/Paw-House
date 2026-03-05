@@ -47,4 +47,6 @@
 :root {
   --font-family: "IBM Plex Sans", sans-serif;
   --second-family: "Open Sans", sans-serif;
+  --hero-overlay: rgba(68, 59, 46, 0.74);
+  --hero-overlay-transparent: rgba(68, 59, 46, 0);
 }
