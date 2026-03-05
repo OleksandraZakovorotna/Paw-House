@@ -93,7 +93,7 @@
   line-height: 150%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   #success-story-section .feedback-text {
     font-size: 20px;
   }
@@ -102,11 +102,17 @@
 #success-story-section .feedback-author {
   color: var(--Color-Scheme-1-Text);
   font-family: var(--font-family);
-  font-size: var(--Text-Sizes-Text-Regular, 16px);
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
   margin-top: 32px;
+}
+
+@media screen and (min-width: 1280px) {
+  #success-story-section .feedback-author {
+    font-size: 16px;
+  }
 }
 
 /* ===== Rating (your SVG stars) ===== */
