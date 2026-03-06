@@ -1,25 +1,37 @@
-/*  Tokens  */
+/* ========== TOKENS  ========== */
 :root {
     --pet-backdrop: rgba(0, 0, 0, 0.25);
-    --pet-modal-bg: #f5f3f0;
-    --pet-text: #111111;
-    --pet-muted: rgba(17, 17, 17, 0.6);
-    --pet-btn-bg: #7b6a55;
-    --pet-btn-bg-hover: #6d5e4c;
+
+    --pet-modal-bg: #f6f4f1;
+    --pet-text: #02060a;
+    --pet-muted: rgba(2, 6, 10, 0.6);
+
+    --pet-btn-bg: #88765c;
+
+    --pet-btn-hover: #c3b49d;
+
     --pet-white: #ffffff;
+
     --pet-radius: 8px;
 }
 
-/*  Backdrop  */
+/* body lock scroll  */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ========== BACKDROP ========== */
 .pet-backdrop {
     position: fixed;
     inset: 0;
-    background: var(--pet-backdrop);
     z-index: 1000;
+
+    background: var(--pet-backdrop);
 
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 64px;
 }
 
@@ -29,21 +41,23 @@
     pointer-events: none;
 }
 
-/*  Modal  */
+/* ========== MODAL ========== */
 .pet-modal {
     position: relative;
+
+    width: min(1312px, 100%);
     background: var(--pet-modal-bg);
     border-radius: var(--pet-radius);
 
-    width: min(1312px, 100%);
     max-height: calc(100vh - 128px);
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    overflow-y: auto;
 
     padding: 64px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
-/* Close button */
+/* ========== CLOSE BUTTON (SVG inside) ========== */
 .pet-modal__close {
     position: absolute;
     top: 24px;
@@ -54,15 +68,26 @@
 
     border: none;
     background: transparent;
-
     cursor: pointer;
-    color: var(--pet-text);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    color: var(--pet-text);
+    border-radius: 6px;
+
     transition: opacity 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.pet-modal__close-icon {
+    fill: currentColor;
+}
+
+.pet-modal__close-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
 }
 
 .pet-modal__close:hover {
@@ -70,16 +95,15 @@
 }
 
 .pet-modal__close:focus-visible {
-    outline: 2px solid rgba(17, 17, 17, 0.35);
+    outline: 2px solid rgba(2, 6, 10, 0.35);
     outline-offset: 2px;
-    border-radius: 6px;
 }
 
 .pet-modal__close:active {
     transform: scale(0.96);
 }
 
-/*  Layout   */
+/* ========== LAYOUT ========== */
 .pet-modal__layout {
     display: grid;
     grid-template-columns: 576px 1fr;
@@ -87,13 +111,13 @@
     align-items: start;
 }
 
-/* Image */
+/* IMAGE */
 .pet-modal__img-wrap {
-    border-radius: var(--pet-radius);
-    overflow: hidden;
-
     width: 100%;
     aspect-ratio: 576 / 450;
+
+    border-radius: var(--pet-radius);
+    overflow: hidden;
     background: rgba(0, 0, 0, 0.06);
 }
 
@@ -104,7 +128,7 @@
     display: block;
 }
 
-/*  Content  */
+/* CONTENT  */
 .pet-modal__content {
     min-width: 0;
     color: var(--pet-text);
@@ -112,85 +136,101 @@
     flex-direction: column;
 }
 
-/* Type */
+/* TYPE  */
 .pet-modal__type {
     margin: 0 0 8px;
-    font-size: 12px;
-    line-height: 1.2;
-    color: var(--pet-muted);
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    color: var(--pet-text);
 }
 
-/* Name */
+/* NAME (шрифт по макету) */
 .pet-modal__name {
     margin: 0;
-    font-size: 40px;
-    line-height: 1.1;
+
+    font-family: "Open Sans", sans-serif;
     font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+
+    color: var(--pet-text);
 }
 
-/* Meta (age • sex) */
+/* META */
 .pet-modal__meta {
-    margin: 8px 0 24px;
-    font-size: 12px;
-    line-height: 1.2;
-    color: var(--pet-muted);
+    margin: 4px 0 24px;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    color: var(--pet-text);
 }
 
-/* Button */
+/* BUTTON */
 .pet-modal__btn {
     height: 48px;
-    border-radius: var(--pet-radius);
-    border: none;
-
     width: 100%;
     max-width: 576px;
+
+    border-radius: var(--pet-radius);
+    border: 1px solid transparent;
 
     background: var(--pet-btn-bg);
     color: var(--pet-white);
 
+    font-family: "IBM Plex Sans", sans-serif;
     font-size: 14px;
-    line-height: 1.2;
+    line-height: 150%;
+
     cursor: pointer;
 
-    transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    transition: background 200ms ease, color 200ms ease, transform 200ms ease, border-color 200ms ease;
 }
 
-.pet-modal__btn:hover {
-    background: var(--pet-btn-bg-hover);
-}
-
+.pet-modal__btn:hover,
 .pet-modal__btn:focus-visible {
-    outline: 3px solid rgba(123, 106, 85, 0.35);
-    outline-offset: 2px;
+    background: var(--pet-btn-hover);
+    color: var(--pet-text);
+    border-color: var(--pet-text);
 }
 
 .pet-modal__btn:active {
     transform: translateY(1px);
 }
 
-/* Scrollable text block */
+/* TEXT SCROLL AREA (всередині модалки) */
 .pet-modal__scroll {
-    margin-top: 24px;
-
-    overflow: auto;
-    max-height: calc(100vh - 128px - 64px - 64px - 48px - 24px - 120px);
-    padding-right: 8px;
+    margin-top: 32px;
 }
 
-/* Subtitles  */
+/* SUBTITLE */
 .pet-modal__subtitle {
     margin: 0 0 8px;
-    font-size: 14px;
-    line-height: 1.2;
-    font-weight: 700;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: var(--pet-text);
 }
 
-/* Text */
+/* TEXT */
 .pet-modal__text {
     margin: 0 0 24px;
-    /* ритм секцій */
-    font-size: 12px;
-    line-height: 1.5;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
     color: var(--pet-text);
 }
 
@@ -198,7 +238,7 @@
     margin-bottom: 0;
 }
 
-/*  Tablet  */
+/* ========== TABLET (<=1024) ========== */
 @media (max-width: 1024px) {
     .pet-backdrop {
         padding: 32px;
@@ -212,7 +252,7 @@
 
     .pet-modal__layout {
         grid-template-columns: 304px 1fr;
-         column-gap: 32px;
+        column-gap: 32px;
     }
 
     .pet-modal__img-wrap {
@@ -220,20 +260,15 @@
     }
 
     .pet-modal__name {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     .pet-modal__btn {
         max-width: 304px;
-        height: 48px;
-    }
-
-    .pet-modal__scroll {
-        max-height: calc(100vh - 64px - 32px - 64px - 48px - 24px - 120px);
     }
 }
 
-/*  Mobile */
+/* ========== MOBILE (<=767) ========== */
 @media (max-width: 767px) {
     .pet-backdrop {
         padding: 20px;
@@ -242,8 +277,11 @@
 
     .pet-modal {
         width: min(375px, 100%);
-        padding: 20px;
         max-height: calc(100vh - 40px);
+
+        /* ключове виправлення — щоб close НЕ наїжджав на картинку */
+        padding: 20px;
+        padding-top: 52px;
     }
 
     .pet-modal__close {
@@ -256,49 +294,33 @@
         row-gap: 20px;
     }
 
-    /* mobile  */
     .pet-modal__img-wrap {
         aspect-ratio: 1 / 1;
         width: min(295px, 100%);
         margin: 0 auto;
     }
 
-    .pet-modal__type {
-        margin-bottom: 8px;
-    }
-
     .pet-modal__name {
-        font-size: 32px;
-    }
-
-    .pet-modal__meta {
-        margin: 8px 0 24px;
+        font-size: 40px;
     }
 
     .pet-modal__btn {
         width: min(295px, 100%);
         margin: 24px auto 0;
-        height: 48px;
     }
 
     .pet-modal__scroll {
         margin-top: 8px;
-        max-height: calc(100vh - 40px - 20px - 20px - 295px - 24px - 48px - 120px);
-    }
-
-    .pet-modal__text {
-        margin-bottom: 24px;
     }
 }
 
-/*  Extra small  */
+/* ========== EXTRA SMALL (<=360) ========== */
 @media (max-width: 360px) {
     .pet-modal {
         width: min(335px, 100%);
     }
 
     .pet-modal__btn {
-        width: min(295px, 100%);
         height: 45px;
     }
 }
