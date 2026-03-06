@@ -1,33 +1,32 @@
-// Відкриття та закриття модального вікна
-
-// Переконатись у наявності класу "open-modal-btn" у кнопки, яка відкриває модалку
-const openModalBtn = document.querySelector('.open-modal-btn');
 const closeModalBtn = document.querySelector('.order-modal-close-btn');
 const backdrop = document.querySelector('.backdrop');
 
-openModalBtn.addEventListener('click', openModal);
-closeModalBtn.addEventListener('click', closeModal);
-backdrop.addEventListener('click', onBackdropClick);
-document.addEventListener('keydown', onEscPress);
+export function openOrderModal() {
+  if (!backdrop) return;
 
-function openModal() {
   backdrop.classList.remove('is-hidden');
+
+  window.addEventListener('keydown', onEscPress);
+  backdrop.addEventListener('click', onBackdropClick);
+  closeModalBtn.addEventListener('click', closeOrderModal);
 }
 
-function closeModal() {
+export function closeOrderModal() {
+  if (!backdrop) return;
+
   backdrop.classList.add('is-hidden');
+
+  window.removeEventListener('keydown', onEscPress);
+  backdrop.removeEventListener('click', onBackdropClick);
+  closeModalBtn.removeEventListener('click', closeOrderModal);
 }
 
-function onBackdropClick(event) {
-  if (event.target === backdrop) {
-    closeModal();
-  }
+function onEscPress(e) {
+  if (e.key === 'Escape') closeOrderModal();
 }
 
-function onEscPress(event) {
-  if (event.key === 'Escape') {
-    closeModal();
-  }
+function onBackdropClick(e) {
+  if (e.target === backdrop) closeOrderModal();
 }
 
 // Заборона скролу через body при відкритті модалки
@@ -40,4 +39,3 @@ function closeModal() {
   backdrop.classList.add('is-hidden');
   document.body.classList.remove('no-scroll');
 }
-// --------------
