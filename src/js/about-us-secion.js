@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -74,7 +74,7 @@ function getAdaptiveImage(imgObj) {
   }
 }
 
-function createslises(array) {
+function createSlides(array) {
   return array
     .map(image => {
       const selectedImg = getAdaptiveImage(image);
@@ -91,41 +91,33 @@ function createslises(array) {
     .join('');
 }
 
-slidu.insertAdjacentHTML('beforeend', createslises(images));
-
-const swiper = new Swiper('.swiper', {
-  modules: [Navigation, Pagination],
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  keyboard: {
-    enabled: true,
-  },
-});
+slidu.insertAdjacentHTML('beforeend', createSlides(images));
 
 let swiperInstance;
 function renderSlider() {
   const slidu = document.querySelector('.swiper-wrapper');
+  if (!slidu) return;
 
-  slidu.innerHTML = createslises(images);
+  slidu.innerHTML = createSlides(images);
 
-  if (swiperInstance) {
+  if (swiperInstance && typeof swiperInstance.destroy === 'function') {
     swiperInstance.destroy(true, true);
   }
 
-  swiperInstance = new Swiper('.swiper', {
-    modules: [Navigation, Pagination],
+  swiperInstance = new Swiper('.about-swiper', {
+    modules: [Navigation, Pagination, Keyboard],
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    keyboard: { enabled: true },
+    pagination: {
+      el: '.about-swiper-pagination',
+      clickable: true,
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
   });
 }
 

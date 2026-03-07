@@ -1,13 +1,15 @@
 :root {
   --swiper-pagination-bottom: 0px;
+  background-color: var(--color-mariner-lightest);
 }
+
 .gallery {
   width: 100%;
   margin: 0 auto;
-  background-color: var(--color-mariner-lightest);
   padding: 64px 20px;
-  overflow: hidden;
+  overflow: visible;
 }
+
 .gallery__title {
   margin: 0 auto 40px;
   text-align: center;
@@ -17,31 +19,35 @@
   line-height: 1.2;
   letter-spacing: -1%;
 }
-.slider-container {
+
+#about-us-secion .slider-container {
   position: relative;
   margin: 0 auto;
   width: 100%;
 }
-.swiper {
+
+#about-us-secion .about-swiper {
   width: 100%;
   height: 402px;
   overflow: hidden;
 }
 
-.swiper-slide {
+#about-us-secion .swiper-slide {
   background-size: cover;
   background-position: center;
   display: flex !important;
-  align-items: flex-end; /* Текст притиснутий до низу */
+  align-items: flex-end;
+  /* Текст притиснутий до низу */
   padding: 20px;
 }
 
-.slide-content {
+#about-us-secion .slide-content {
   color: var(--color-mariner-lightest);
   width: 100%;
   text-align: left;
 }
-.slide-content p {
+
+#about-us-secion .slide-content p {
   font-family: var(--font-family);
   font-size: 16px;
   font-weight: 400;
@@ -49,15 +55,16 @@
   margin: 0;
 }
 
-.controls-wrapper {
+#about-us-secion .controls-wrapper {
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Розносить пагінацію вліво, кнопки вправо */
+  justify-content: space-between;
+  /* Розносить пагінацію вліво, кнопки вправо */
   margin-top: 24px;
 }
 
-.swiper-pagination.my-swiper-pagination {
+#about-us-secion .about-swiper-pagination {
   position: static !important;
   text-align: left;
   margin: 0;
@@ -71,8 +78,8 @@
   gap: 8px;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+#about-us-secion .swiper-button-next,
+#about-us-secion .swiper-button-prev {
   margin: 6px 6px 6px 6px !important;
   position: static !important;
   display: flex !important;
@@ -97,12 +104,6 @@
 .swiper-button-next::after {
   display: none;
 }
-/*.swiper-button-prev {
-  left: -28px !important;
-}
-.swiper-button-next {
-  right: -19px !important;
-}*/
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover,
@@ -120,17 +121,10 @@
     inset 0px 12px 16px -4px rgba(0, 0, 0, 0.08);
 }
 
-/*.swiper-pagination {
-  position: relative !important;
-  margin-top: 48px;
-  text-align: center;
-}
-.my-swiper-pagination {
-  bottom: 0;
-}*/
-.swiper-pagination-bullet-active {
+#about-us-secion .swiper-pagination-bullet-active {
   background: var(--color-neutral-darkest) !important;
 }
+
 /* Планшет (від 768px) */
 @media screen and (min-width: 768px) {
   .gallery {
@@ -143,37 +137,41 @@
     margin-bottom: 40px;
   }
 
-  .swiper {
+  #about-us-secion .about-swiper {
     height: 500px;
   }
-  .swiper-slide {
+
+  #about-us-secion .swiper-slide {
     padding: 32px;
   }
-  .slide-content p {
+
+  #about-us-secion .slide-content p {
     font-size: 16px;
     /*max-width: 80%;*/
   }
-  .controls-wrapper {
+
+  #about-us-secion .controls-wrapper {
     height: 28px;
-    justify-content: center; /* На великих екранах зазвичай пагінація по центру */
+    justify-content: center;
   }
 
   /* Якщо на десктопі стрілки мають бути по боках слайдера, 
      поверніть їм position: absolute */
-  .swiper-button-prev {
+  #about-us-secion .swiper-button-prev {
     position: absolute !important;
     left: -34px !important;
     top: 50%;
     transform: translateY(-50%);
   }
 
-  .swiper-button-next {
+  #about-us-secion .swiper-button-next {
     position: absolute !important;
     right: -34px !important;
-    top: 376px;
-    transform: translateY(-60%);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
+
 /* Десктоп (від 1440px) */
 @media screen and (min-width: 1440px) {
   .gallery {
@@ -187,35 +185,34 @@
     font-size: 48px;
     margin-bottom: 40px;
   }
-
-  .slider-container {
+  #about-us-secion .slider-container {
     width: 1312px;
   }
 
-  .swiper {
+  #about-us-secion .about-swiper {
     height: 753px;
     width: 1312px;
   }
 
-  .slide-content {
+  #about-us-secion .slide-content {
     /* Замість жорстких margin використовуємо padding/max-width */
     padding: 0 0 64px 64px;
     width: 548px;
   }
 
-  .slide-content p {
+  #about-us-secion .slide-content p {
     width: 548px;
     font-size: 18px;
     font-weight: 400;
   }
 
-  .swiper-slide {
+  #about-us-secion .swiper-slide {
     padding: 0;
   }
 }
 
 /* Стилі пагінації */
-.swiper-pagination {
+#about-us-secion .about-swiper-pagination {
   position: relative !important;
   margin-top: 32px;
 }
