@@ -47,6 +47,7 @@
   --second-family: "Open Sans", sans-serif;
 }
 
+
 body {
   background-color: var(--color-scheme-1-background);
   color: var(--color-scheme-1-text);
