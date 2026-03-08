@@ -1,5 +1,5 @@
 .pets-section {
-    padding: 64px 0;
+    padding: 64px 0 32px;
 }
 
 @media (min-width: 1440px) {
@@ -21,17 +21,23 @@
 
 .section-subtitle {
     margin: 0 auto;
+    font-weight: 400;
+    font-size: 18px;
 }
 
-.pets-section .title-container .section-subtitle {
+.pets-section .section-subtitle {
     margin-bottom: 32px;
     text-align: center;
     color: var(--color-scheme-1-text);
 }
 
 @media (min-width: 1440px) {
-    .pets-section .title-container .section-subtitle {
+    .pets-section .section-subtitle {
         margin-bottom: 40px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
     }
 }
 
@@ -47,6 +53,8 @@
         margin-bottom: 40px;
     }
 }
+
+
 
 
 
@@ -76,10 +84,16 @@
 
 
 
+
+
 /*картки з тваринами*/
 .pet-img-thumb {
     border-radius: 8px;
     overflow: hidden;
+}
+
+.pet-card>*+* {
+    margin-top: 16px;
 }
 
 .pet-card {
@@ -87,20 +101,44 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    gap: 16px;
     border-radius: 16px;
     padding: 12px;
-    width: auto;
-    height: auto;
+    width: 335px;
+    height: 528px;
     background-color: var(--color-scheme-1-foreground);
-    margin-bottom: 32px;
 
+
+
+}
+
+@media (min-width: 768px) {
+    .pet-card {
+        width: 336px;
+        height: 497px;
+    }
+
+}
+
+@media (min-width: 1440px) {
+    .pet-card {
+        width: 416px;
+        height: 604px;
+    }
+
+}
+
+.pets-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
     .pets-list {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
         gap: 32px;
         margin-bottom: 40px;
 
@@ -125,6 +163,8 @@
 
     }
 }
+
+
 
 
 
@@ -164,6 +204,8 @@
 
 
 
+
+
 .pet-tags li {
     padding: 4px 10px;
     border-radius: 20px;
@@ -186,9 +228,8 @@
 }
 
 .pet-short-desc {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    display: flex;
+    display: block;
+
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: row;
@@ -201,6 +242,8 @@
 
 
 
+
+
 /*кнопки на картках*/
 .learn-more-btn {
     border: 1px solid #02060A;
@@ -209,8 +252,10 @@
     width: 100%;
     height: 40px;
     background: #EEE9E3;
-    margin-top: auto;
+
 }
+
+
 
 .learn-more-btn:hover {
     background: #C3B49D;
@@ -266,49 +311,44 @@
 
 .load-more-btn:disabled {
     background: #88765C;
-        opacity: 0.3;
+    opacity: 0.3;
 }
 
-.loader {
-    width: 80px;
-    /* було 48px — зробила більшим */
-    height: 80px;
+/* лоадер*/
+.loader-pet-list {
+position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
     border: 3px solid #4A4A4A;
     border-radius: 50%;
-    display: block;
-    margin: 0 auto;
-    /* центрує горизонтально */
-    position: relative;
-    box-sizing: border-box;
+    z-index: 2000;
     animation: rotation 1s linear infinite;
 }
 
-
-
-.loader::after,
-.loader::before {
+.loader-pet-list::after,
+.loader-pet-list::before {
     content: '';
     box-sizing: border-box;
     position: absolute;
     left: 0;
     top: 0;
     background: #FF3D00;
-    width: 10px;
-    /* збільшено */
-    height: 10px;
+    width: 6px;
+    height: 6px;
     transform: translate(150%, 150%);
     border-radius: 50%;
 }
 
-.loader::before {
+.loader-pet-list::before {
     left: auto;
     top: auto;
     right: 0;
     bottom: 0;
     transform: translate(-150%, -150%);
 }
-
-
 
 @keyframes rotation {
     0% {

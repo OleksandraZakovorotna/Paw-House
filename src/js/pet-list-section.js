@@ -13,8 +13,7 @@ const animalsCache = {};
 const getLimit = () => (window.innerWidth >= 1440 ? 9 : 8);
 
 const toggleLoader = show => {
-  if (show) loader.classList.remove('is-hidden');
-  else loader.classList.add('is-hidden');
+  loader.classList.toggle('is-hidden', !show);
 };
 
 async function fetchCategories() {
