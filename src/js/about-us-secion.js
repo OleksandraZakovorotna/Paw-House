@@ -25,7 +25,7 @@ import slide32desk from '../img/about-img/slide03-desk@2x.webp';
 import slide31tab from '../img/about-img/slide03-tab.webp';
 import slide32tab from '../img/about-img/slide03-tab@2x.webp';
 import slide31mob from '../img/about-img/slide03-mob.webp';
-import slide32mob from '../img/about-img/slide03-mob@2x.v';
+import slide32mob from '../img/about-img/slide03-mob@2x.webp';
 
 import slide41desk from '../img/about-img/slide04-desk.webp';
 import slide42desk from '../img/about-img/slide04-desk@2x.webp';
