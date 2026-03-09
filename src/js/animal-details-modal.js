@@ -40,7 +40,6 @@ function onCloseClick() {
 
 function onAdoptClick() {
   const petToOrder = currentPet._id;
-  console.log(currentPet)
   closePetModal();
   openOrderModal(petToOrder);
 }
@@ -61,8 +60,6 @@ function fillModal(pet) {
   refs.desc.textContent = pet.description ?? pet.desc ?? 'Опис відсутній.';
   refs.health.textContent = pet.healthStatus ?? 'Інформація відсутня.';
   refs.behavior.textContent = pet.behavior ?? 'Інформація відсутня.';
-
-  console.log(pet);
 }
 
 //  public API  

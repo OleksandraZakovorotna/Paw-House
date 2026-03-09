@@ -68,7 +68,6 @@ async function handleFormSubmit(e) {
 
     closeOrderModal();
   } catch (error) {
-    console.log(error)
     const errorMessage =
       error.response?.data?.message || 'Щось пішло не так. Спробуйте пізніше.';
 
