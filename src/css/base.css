@@ -42,6 +42,19 @@
   --color-scheme-2-accent: var(--color-white);
   --color-scheme-2-foreground: var(--color-mariner-dark);
   --color-red: #ae0000;
+  --primary: #3B82F6;
+  --dark: #1F2937;
+  --white: #FFFFFF;
+  --pet-backdrop: rgba(0, 0, 0, 0.25);
+  --pet-modal-bg: #f5f3f0;
+  --pet-text: #111111;
+  --pet-muted: rgba(17, 17, 17, 0.6);
+  --pet-btn-bg: #7b6a55;
+  --pet-btn-bg-hover: #6d5e4c;
+  --pet-white: #ffffff;
+  --pet-radius: 8px;
+  --swiper-pagination-bottom: 0px;
+  --background-color: var(--color-mariner-lightest);
 
   --font-family: "IBM Plex Sans", sans-serif;
   --second-family: "Open Sans", sans-serif;

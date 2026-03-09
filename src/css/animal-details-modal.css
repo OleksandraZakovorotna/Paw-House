@@ -1,14 +1,3 @@
-:root {
-    --pet-backdrop: rgba(0, 0, 0, 0.25);
-    --pet-modal-bg: #f5f3f0;
-    --pet-text: #111111;
-    --pet-muted: rgba(17, 17, 17, 0.6);
-    --pet-btn-bg: #7b6a55;
-    --pet-btn-bg-hover: #6d5e4c;
-    --pet-white: #ffffff;
-    --pet-radius: 8px;
-}
-
 /*  Backdrop  */
 .pet-backdrop {
     position: fixed;
@@ -68,7 +57,10 @@
     align-items: center;
     justify-content: center;
 
-    transition: opacity 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    transition:
+        opacity 200ms ease,
+        transform 200ms ease,
+        box-shadow 200ms ease;
 }
 
 .pet-modal__close:hover {
@@ -100,7 +92,7 @@
 
     width: 576px;
     max-height: 450px;
-    
+
     background: rgba(0, 0, 0, 0.06);
 }
 
@@ -161,7 +153,10 @@
     line-height: 1.2;
     cursor: pointer;
 
-    transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    transition:
+        background 200ms ease,
+        transform 200ms ease,
+        box-shadow 200ms ease;
 }
 
 .pet-modal__btn:hover {
@@ -212,18 +207,24 @@
     }
 
     .pet-modal {
+        max-width: 704px;
+        /*правка*/
         padding: 64px 32px;
         max-height: calc(100vh - 64px);
     }
 
+    .pet-modal__content {
+        max-width: 304px;
+        /*правка*/
+    }
+
     .pet-modal__layout {
         display: flex;
-
     }
 
     .pet-modal__img-wrap {
-     min-width: 304px;
-     height: 450px;
+        max-width: 304px;
+        height: 450px;
     }
 
     .pet-modal__name {
@@ -234,7 +235,6 @@
         max-width: 304px;
         height: 48px;
     }
-
 }
 
 /*  Mobile */
@@ -243,81 +243,84 @@
         padding: 20px;
         align-items: flex-start;
     }
-
     .pet-modal {
-        width: min(375px, 100%);
+        width: min(335px, 100%);
+        /*правка*/
         padding: 64px 20px;
         max-height: calc(100vh - 40px);
         display: flex;
-
+    
         flex-direction: column;
     }
-
+    
     .pet-modal__close {
         top: 16px;
         right: 16px;
     }
-
+    
     .pet-modal__layout {
-display: flex;
-flex-direction: column;
+        display: flex;
+        flex-direction: column;
     }
-
-    /* mobile  */
+    
+        /* mobile  */
     .pet-modal__img-wrap {
         /* aspect-ratio: 1 / 1; */
-        width: 295px;
+        max-width: 295px;
+        /*правка*/
+         width: 100%;
+            /*правка*/
         height: 295px;
         margin: 0 auto;
-        margin-bottom: 32px;
+         margin-bottom: 32px;
     }
-
+    
     .pet-modal__type {
         margin-bottom: 8px;
     }
-
+    
     .pet-modal__name {
         font-size: 32px;
     }
-
+    
     .pet-modal__meta {
         margin-bottom: 24px;
     }
-
+    
     .pet-modal__btn {
         width: min(295px, 100%);
         height: 48px;
     }
-
+    
     .pet-modal__text {
         margin-bottom: 24px;
     }
 }
-
-/*  Extra small  */
-@media (max-width: 360px) {
-    .pet-modal {
-        width: min(335px, 100%);
-        padding: 64px 20px;
-    }
-
-    .pet-modal__btn {
-        width: min(295px, 100%);
-        height: 45px;
-    }
+    
+        /*  Extra small  */
+    @media (max-width: 360px) {
+        .pet-modal {
+            width: min(335px, 100%);
+            padding: 64px 20px;
+        }
+    
+        .pet-modal__btn {
+            width: min(295px, 100%);
+            height: 45px;
+        }
 }
-
+    
 @media only screen and (min-width: 1440px) {
     .pet-modal__img-wrap {
-    min-width: 576px;
-    height: 450px;
-  }
-
-  .pet-modal__content {
-    max-width: 522px;
-  }
-
-  .pet-modal__layout {
-    justify-content: space-between;
-  }
+        min-width: 576px;
+        height: 450px;
+    }
+    
+            /*.pet-modal__content {
+        max-width: 522px;
+      } правка*/
+    
+    .pet-modal__layout {
+        justify-content: space-between;
+        }
 }
