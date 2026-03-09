@@ -43,6 +43,7 @@
 
 /* Бургер кнопка */
 .burger-menu {
+    margin: 0;
     padding: 0;
     border: none;
     display: flex;
