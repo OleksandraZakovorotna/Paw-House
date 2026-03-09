@@ -28,3 +28,10 @@ body.modal-open {
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: var(--color-scheme-1-background);
+  color: var(--color-scheme-1-text);
+  font-family: var(--font-family);
+  margin: 0;
+}
