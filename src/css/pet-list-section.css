@@ -108,7 +108,7 @@
     border-radius: 16px;
     padding: 12px;
     gap: 16px;
-    width: 335px;
+    /* width: 335px; */
     background-color: var(--color-scheme-1-foreground);
 }
 
