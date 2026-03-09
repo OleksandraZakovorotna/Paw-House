@@ -53,11 +53,11 @@ http://localhost:5173
 
 - Тімлід - [Олександра](https://github.com/OleksandraZakovorotna)
 - Скрам-майстер - [Ася](https://github.com/asia-skoromna458)
-- Технічна підтримк тімліда - [Арсен](https://github.com/arstrongDV)
+- Технічна підтримка тімліда - [Арсен](https://github.com/arstrongDV)
 - Розробник - [Андрій](https://github.com/andreyk0q)
 - Розробник - [Марина](https://github.com/Marina-Semerenko)
 - Розробник - [Нелz](https://github.com/NelaRepko)
-- Розробник - [Олександр](https://github.com/OleksandrDenysiuk95-hub) -
+- Розробник - [Олександр](https://github.com/OleksandrDenysiuk95-hub)
 - Розробник - [Олена](https://github.com/olena-js)
 - Розробник - [Олександр](https://github.com/SashaOsp)
 - Розробник - [Надія](https://github.com/YaManyunya)
