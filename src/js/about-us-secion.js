@@ -95,50 +95,32 @@ const images = [
 ];
 
 const slidu = document.querySelector('.swiper-wrapper');
-function getAdaptiveImage(imgObj) {
-  const isRetina = window.devicePixelRatio > 1;
-  const width = window.innerWidth;
-
-  if (width < 768) {
-    return isRetina ? imgObj.slidem2 : imgObj.slidem1; // Mobile
-  } else if (width >= 768 && width < 1440) {
-    return isRetina ? imgObj.slidet2 : imgObj.slidet1; // Tablet
-  } else {
-    return isRetina ? imgObj.slided2 : imgObj.slided1; // Desktop
-  }
-}
-
 function createSlides(array) {
   return array
-    .map(image => {
-      const selectedImg = getAdaptiveImage(image);
-      return `
-      <div class="swiper-slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.63)), url('${selectedImg}')">
+    .map(
+      image => `
+      <div class="swiper-slide">
+        <picture>
+          <source media="(min-width: 1440px)" srcset="${image.slided1} 1x, ${image.slided2} 2x" />
+          <source media="(min-width: 768px)" srcset="${image.slidet1} 1x, ${image.slidet2} 2x" />
+          <source srcset="${image.slidem1} 1x, ${image.slidem2} 2x" />
+          <img src="${image.slided1}" alt="Про нас" class="slide-img" loading="lazy" />
+        </picture>
         <div class="slide-content">
-          <p>
-            ${image.texta}
-          </p>
+          <p>${image.texta}</p>
         </div>
-      </div>
-  `;
-    })
+      </div>`
+    )
     .join('');
 }
 
-slidu.insertAdjacentHTML('beforeend', createSlides(images));
-
-let swiperInstance;
 function renderSlider() {
-  const slidu = document.querySelector('.swiper-wrapper');
-  if (!slidu) return;
+  const wrapper = document.querySelector('.swiper-wrapper');
+  if (!wrapper) return;
 
-  slidu.innerHTML = createSlides(images);
+  wrapper.innerHTML = createSlides(images);
 
-  if (swiperInstance && typeof swiperInstance.destroy === 'function') {
-    swiperInstance.destroy(true, true);
-  }
-
-  swiperInstance = new Swiper('.about-swiper', {
+  const swiperInstance = new Swiper('.about-swiper', {
     modules: [Navigation, Pagination, Keyboard],
     navigation: {
       nextEl: '.swiper-button-next',
@@ -152,15 +134,9 @@ function renderSlider() {
       enabled: true,
       onlyInViewport: true,
     },
+    observer: true,
+    observeParents: true,
   });
 }
-
-let resizeTimeout;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-    renderSlider();
-  }, 250);
-});
 
 renderSlider();
