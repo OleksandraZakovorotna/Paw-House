@@ -49,8 +49,8 @@ async function handleFormSubmit(e) {
   const formData = {
     name: name.value.trim(),
     phone: formatPhone(phone.value.trim()),
-    comment: comment.value.trim(),
-    animalId: currentAnimalId, //TODO: прописати коректну змінну для id тварини замість animalId
+    comment: comment.value.trim() || 'No comment',
+    animalId: currentAnimalId,
   };
 
   try {
